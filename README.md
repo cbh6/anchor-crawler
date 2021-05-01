@@ -21,6 +21,19 @@
 - The entire application was done with [Node](https://nodejs.org/en/), [Express](http://expressjs.com/), [React](https://reactjs.org/), and [MongoDB](https://www.mongodb.com/).
 - It also uses [mongoose](https://mongoosejs.com/) as a Object Data Modeling and [Mongo Atlas](https://www.mongodb.com/cloud/atlas) as a cloud DataBase
 
+## Application structure
+
+- 🖼️ The entire frontend is on **/client** folder and was bootstraped with [create-react-app](https://create-react-app.dev/)
+  - **/client/src/components** contains the 3 main components that compose our app
+  - **/client/src/hooks** contains our custom hooks
+  - **/client/src/App.js** is the main component
+  - **/client/src/public/** for public assets
+- 🖥️ The backend is on the root folder and separated in 4 main directories
+  - **/config** is where we have our config files such local/prod environment variables, mongo credentials etc
+  - **/models** for our mongoose schema definitions
+  - **/routes** for our backend routes
+  - **/services** where the business logic lives 
+
 ---
 ---
 
