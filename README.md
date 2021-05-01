@@ -63,3 +63,19 @@ npm run dev
 
 - 📤 The updates on the UI are done by http polling, this was done this way for simplicity, but obviously its not the better solution. We could use something like [SocketIO](https://socket.io/) to allow the client listen for server notifications instead of requesting for new data every X seconds. (I tried this a little some years ago and implemented a little chat application using VueJS and SocketIO. [Here is the repo](https://github.com/cbh6/vuejs-socketio-chat))
 - 🎨 The styling was done using plain css in one single file. This wasn't a problem on this small project. But for large codebases with lot of components, we can use [css modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) and [SCSS](https://sass-lang.com/) as a CSS preprocessor
+
+
+## App Info
+
+### Author
+
+Cristian Botella Hurtado
+[https://cbh6.github.io/](https://cbh6.github.io/)
+
+### Version
+
+1.0.0
+
+### License
+
+This project is licensed under the MIT License
