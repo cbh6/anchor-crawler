@@ -16,9 +16,7 @@
 - This project was a fullstack challenge proposed as a technical test
 - I have been always interested in how crawling websites work by using nodejs and this was a perfect playground to try it out
 
-## How?:
-
-## Tech stack 📦:
+## How? / Tech stack 📦:
 
 - The entire application was done with [Node](https://nodejs.org/en/), [Express](http://expressjs.com/), [React](https://reactjs.org/), and [MongoDB](https://www.mongodb.com/).
 - It also uses [mongoose](https://mongoosejs.com/) as a Object Data Modeling and [Mongo Atlas](https://www.mongodb.com/cloud/atlas) as a cloud DataBase
