@@ -9,6 +9,7 @@
 - On the UI we are able to see all launched jobs.
 - The client will automatically update the data by requesting for any update every 3 seconds (polling)
 - As soon as every job is completed, the polling will be stopped.
+- We can click on any job and see the crawling result.
 
 ## Why?:
 
