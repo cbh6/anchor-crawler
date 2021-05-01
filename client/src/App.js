@@ -1,34 +1,45 @@
-import React, { useState, useEffect } from "react";
-import { POLLING_TIME } from './constants';
+import React, { useEffect } from "react";
+import { JOB_STATUS } from "./constants";
 import useJobsApi from "./useJobsApi";
 import "./App.css";
+import JobInput from "./components/JobInput";
+import JobsList from "./components/JobsList";
 
 function App() {
-  const [intervalId, setIntervalId] = useState();
-  const { jobs, fetchJobs } = useJobsApi();
+  const {
+    jobs,
+    createJob,
+    startPolling,
+    stopPolling,
+    intervalId,
+  } = useJobsApi();
 
   useEffect(() => {
-    fetchJobs();
-    const id = setInterval(() => fetchJobs(), POLLING_TIME);
-    setIntervalId(id);
+    startPolling();
   }, []);
 
   useEffect(() => {
-    console.log(jobs.length);
-    if (jobs.length && jobs.every((job) => job.status === "finished")) {
+    if (jobs.length && !jobs.some((job) => job.status === JOB_STATUS.RUNNING)) {
       console.log("Stop polling");
-      clearInterval(intervalId);
+      stopPolling();
     }
-  }, [jobs, intervalId]);
+  }, [jobs]);
+
+  const sendJobUrl = (url) => {
+    createJob(url);
+
+    // Prevent from creating interval if there is another already running
+    if (!intervalId) {
+      startPolling();
+    }
+  };
 
   return (
     <div className="app">
-      <h1>Test</h1>
-      {jobs.map((job) => (
-        <p key={job._id}>
-          {job.url} || {job.status}
-        </p>
-      ))}
+      <h1>Anchor Crawler</h1>
+
+      <JobInput sendJobUrl={sendJobUrl} />
+      <JobsList jobs={jobs} />
     </div>
   );
 }

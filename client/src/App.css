@@ -1,1 +1,134 @@
+/* GENERAL STYLES */
+.app {
+  padding: 50px;
+  background: black;
+  color: white;
+}
 
+div {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+h1 {
+  color: rgb(9, 255, 0);
+  text-align: center;
+}
+
+/* JOB LIST */
+.job-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  max-height: 70vh;
+  max-width: 100vw;
+  padding: 10px;
+  border: 1px solid rgb(9, 255, 0);
+  background-color: #202020;
+  /* color: rgb(9, 255, 0); */
+  border-radius: 13px;
+  margin-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: darkgrey slategrey;
+}
+.job-list::-webkit-scrollbar {
+  width: 1em;
+}
+.job-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.job-list::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+.job-item {
+  display: flex;
+  border-bottom: 1px solid black;
+}
+.job-item div {
+  margin: 10px;
+}
+
+.job-index {
+  width: 10px;
+}
+.job-url {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.job-status {
+  color: white;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.job-status,
+.job-date {
+  min-width: 100px;
+  max-width: 100px;
+}
+.status-running {
+  background-color: #358dff;
+}
+.status-error {
+  background-color: #ff4d4d;
+}
+.status-finished {
+  background-color: #07b900;
+}
+
+/* JOB INPUT */
+.job-input {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.job-input input {
+  width: 60%;
+  background: lightgray;
+  border-radius: 6px;
+  padding: 5px;
+}
+.job-input button {
+  width: 15%;
+  background-color: #07b900;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.error {
+  text-align: center;
+  color: #ff4d4d;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .app {
+    padding: 15px;
+  }
+  .job-item {
+    flex-direction: column;
+  }
+  .job-input {
+    flex-direction: column;
+  }
+  .job-input input {
+    width: auto;
+  }
+  .job-input button {
+    width: auto;
+  }
+}
