@@ -22,12 +22,13 @@
 - It also uses [mongoose](https://mongoosejs.com/) as a Object Data Modeling and [Mongo Atlas](https://www.mongodb.com/cloud/atlas) as a cloud DataBase
 
 ---
+---
 
 ## Live Demo
 
 I have deployed the application for demo purposes on [Heroku](https://dashboard.heroku.com/). You can try it out [here](https://cbh-anchor-crawler.herokuapp.com/)
 
-## Quick Start 🚀
+## Quick Start. Run it locally 🚀
 
 ### Add a default.json file in config folder with the following
 
