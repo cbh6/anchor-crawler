@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { JOB_STATUS } from "./constants";
 import useJobsApi from "./useJobsApi";
 import "./App.css";
 import JobInput from "./components/JobInput";
 import JobsList from "./components/JobsList";
+import JobModal from "./components/JobModal";
 
 function App() {
   const {
@@ -13,6 +14,19 @@ function App() {
     stopPolling,
     intervalId,
   } = useJobsApi();
+
+  const [selectedJob, setSelectedJob] = useState();
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  const openModal = (job) => {
+    setSelectedJob(job);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedJob(null);
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     startPolling();
@@ -39,7 +53,12 @@ function App() {
       <h1>Anchor Crawler</h1>
 
       <JobInput sendJobUrl={sendJobUrl} />
-      <JobsList jobs={jobs} />
+      <JobsList jobs={jobs} onJobClick={openModal} />
+      <JobModal
+        selectedJob={selectedJob}
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+      />
     </div>
   );
 }

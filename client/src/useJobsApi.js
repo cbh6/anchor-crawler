@@ -32,7 +32,7 @@ const useJobsApi = (query) => {
     setIntervalId(null);
   }, [intervalId]);
 
-  useEffect(() => fetchJobs(), []);
+  useEffect(() => fetchJobs(), [fetchJobs]);
 
   return { jobs, createJob, startPolling, stopPolling, intervalId };
 };
