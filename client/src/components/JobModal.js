@@ -1,7 +1,7 @@
-import React from "react";
-import Modal from "react-modal";
-import { format } from "date-fns";
-import { JOB_STATUS } from "../constants";
+import React from 'react';
+import Modal from 'react-modal';
+import { format } from 'date-fns';
+import { JOB_STATUS } from '../constants';
 
 function JobModal({ selectedJob, modalIsOpen, closeModal }) {
   return (
@@ -12,17 +12,13 @@ function JobModal({ selectedJob, modalIsOpen, closeModal }) {
       ariaHideApp={false}
       style={{
         overlay: {
-          background: "black",
+          background: 'black',
         },
         content: {
-          background: "#393939",
-          color: "white",
-          border: `3px solid ${
-            selectedJob && selectedJob.status === JOB_STATUS.ERROR
-              ? "#ff4d4d"
-              : "rgb(9, 255, 0)"
-          }`,
-          borderRadius: "5px",
+          background: '#393939',
+          color: 'white',
+          border: `3px solid ${selectedJob && selectedJob.status === JOB_STATUS.ERROR ? '#ff4d4d' : 'rgb(9, 255, 0)'}`,
+          borderRadius: '5px',
         },
       }}
     >
@@ -37,17 +33,13 @@ function JobModal({ selectedJob, modalIsOpen, closeModal }) {
           </p>
           <p>
             <strong>Status: </strong>
-            <span className={`job-status status-${selectedJob.status}`}>
-              {selectedJob.status}
-            </span>
+            <span className={`job-status status-${selectedJob.status}`}>{selectedJob.status}</span>
           </p>
           <p>
-            <strong>Start date:</strong>{" "}
-            {format(new Date(selectedJob.start_date), "MM/dd/yyyy HH:mm:ss")}
+            <strong>Start date:</strong> {format(new Date(selectedJob.start_date), 'MM/dd/yyyy HH:mm:ss')}
           </p>
           <p>
-            <strong>End date:</strong>{" "}
-            {format(new Date(selectedJob.end_date), "MM/dd/yyyy HH:mm:ss")}
+            <strong>End date:</strong> {format(new Date(selectedJob.end_date), 'MM/dd/yyyy HH:mm:ss')}
           </p>
           <h3>Anchors crawl result:</h3>
           <ul>

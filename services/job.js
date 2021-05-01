@@ -1,7 +1,7 @@
-const axios = require("axios");
-const cheerio = require("cheerio");
-const Job = require("../models/Job");
-const { JOB_STATUS } = require("../utils/constants");
+const axios = require('axios');
+const cheerio = require('cheerio');
+const Job = require('../models/Job');
+const { JOB_STATUS } = require('../utils/constants');
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -26,8 +26,8 @@ module.exports = {
     try {
       const { data } = await axios.get(url);
       const $ = cheerio.load(data);
-      const result = $("a")
-        .map((i, el) => $(el).attr("href"))
+      const result = $('a')
+        .map((i, el) => $(el).attr('href'))
         .get();
 
       await delay(5000);
@@ -42,7 +42,7 @@ module.exports = {
         status: JOB_STATUS.ERROR,
         end_date: new Date(),
       });
-      console.error("Server Error", err.message);
+      console.error('Server Error', err.message);
     }
   },
 };

@@ -1,9 +1,9 @@
 /* GENERAL STYLES */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Zen+Dots&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Zen+Dots&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Zen+Dots&display=swap');
 
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .app {
@@ -29,7 +29,11 @@ h1,
 h2,
 h3 {
   color: rgb(9, 255, 0);
-  font-family: "Zen Dots", OpenSans;
+  font-family: 'Zen Dots', OpenSans;
+}
+
+input:focus {
+  outline: none;
 }
 
 /* JOB LIST */
@@ -42,7 +46,6 @@ h3 {
   padding: 10px;
   border: 1px solid rgb(9, 255, 0);
   background-color: #202020;
-  /* color: rgb(9, 255, 0); */
   border-radius: 13px;
   margin-top: 10px;
   scrollbar-width: thin;
@@ -58,6 +61,7 @@ h3 {
   background-color: lightgray;
   outline: 1px solid #202020;
 }
+
 .job-item {
   display: flex;
   border-bottom: 1px solid black;
@@ -125,6 +129,7 @@ h3 {
   display: inline-block;
   font-size: 16px;
   border-radius: 6px;
+  transition: 0.3s;
 }
 .job-input button:hover {
   cursor: pointer;
@@ -137,6 +142,11 @@ h3 {
 
 /* MODAL */
 .modal-close {
+  float: right;
+}
+
+/* FOOTER */
+.footer {
   float: right;
 }
 

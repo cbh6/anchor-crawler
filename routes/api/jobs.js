@@ -1,26 +1,26 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { validationResult } = require("express-validator");
-const JobService = require("../../services/job");
-const JobValidation = require("../../validation/job");
+const { validationResult } = require('express-validator');
+const JobService = require('../../services/job');
+const JobValidation = require('../../validation/job');
 
 // @route   GET api/jobs
 // @desc    Get all jobs
 // @access  Public
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const jobs = await JobService.getJobs();
     res.json(jobs);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send('Server Error');
   }
 });
 
 // @route   POST api/jobs
 // @desc    Create a job
 // @access  Public
-router.post("/", JobValidation.create(), async (req, res) => {
+router.post('/', JobValidation.create(), async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -32,7 +32,7 @@ router.post("/", JobValidation.create(), async (req, res) => {
     res.json(job);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).send('Server Error');
   }
 });
 

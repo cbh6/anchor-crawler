@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { JOB_STATUS } from "./constants";
-import useJobsApi from "./useJobsApi";
-import "./App.css";
-import JobInput from "./components/JobInput";
-import JobsList from "./components/JobsList";
-import JobModal from "./components/JobModal";
+import React, { useEffect, useState } from 'react';
+import { JOB_STATUS } from './constants';
+import useJobsApi from './hooks/useJobsApi';
+import './App.css';
+import JobInput from './components/JobInput';
+import JobsList from './components/JobsList';
+import JobModal from './components/JobModal';
 
 function App() {
-  const {
-    jobs,
-    createJob,
-    startPolling,
-    stopPolling,
-    intervalId,
-  } = useJobsApi();
+  const { jobs, createJob, startPolling, stopPolling, intervalId } = useJobsApi();
 
   const [selectedJob, setSelectedJob] = useState();
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -34,7 +28,7 @@ function App() {
 
   useEffect(() => {
     if (jobs.length && !jobs.some((job) => job.status === JOB_STATUS.RUNNING)) {
-      console.log("Stop polling");
+      console.log('Stop polling');
       stopPolling();
     }
   }, [jobs]);
@@ -54,11 +48,14 @@ function App() {
 
       <JobInput sendJobUrl={sendJobUrl} />
       <JobsList jobs={jobs} onJobClick={openModal} />
-      <JobModal
-        selectedJob={selectedJob}
-        modalIsOpen={modalIsOpen}
-        closeModal={closeModal}
-      />
+      <JobModal selectedJob={selectedJob} modalIsOpen={modalIsOpen} closeModal={closeModal} />
+
+      <p className="footer">
+        Created by{' '}
+        <a href="https://github.com/cbh6/" target="_blank" rel="noreferrer">
+          Cristian Botella Hurtado
+        </a>
+      </p>
     </div>
   );
 }

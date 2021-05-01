@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef } from 'react';
 
 const defaultOptions = {
   cancelOnUnmount: true,
@@ -24,14 +24,14 @@ const useInterval = (fn, milliseconds, options = defaultOptions) => {
 
   // if the provided function changes, change its reference
   useEffect(() => {
-    if (typeof fn === "function") {
+    if (typeof fn === 'function') {
       callback.current = fn;
     }
   }, [fn]);
 
   // when the milliseconds change, reset the timeout
   useEffect(() => {
-    if (typeof milliseconds === "number") {
+    if (typeof milliseconds === 'number') {
       timeout.current = setInterval(() => {
         callback.current();
       }, milliseconds);

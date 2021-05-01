@@ -1,12 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
-import { API_ROUTES, POLLING_TIME } from "./constants";
+import { useCallback, useEffect, useState } from 'react';
+import { API_ROUTES, POLLING_TIME } from '../constants';
 
-const useJobsApi = (query) => {
+const useJobsApi = () => {
   const [jobs, setJobs] = useState([]);
   const [intervalId, setIntervalId] = useState();
 
   const fetchJobs = useCallback(() => {
-    console.log("fetching jobs ...");
+    console.log('fetching jobs ...');
     fetch(API_ROUTES.jobs)
       .then((response) => response.json())
       .then((data) => setJobs(data));
@@ -14,9 +14,9 @@ const useJobsApi = (query) => {
 
   const createJob = (url) => {
     fetch(API_ROUTES.jobs, {
-      method: "post",
+      method: 'post',
       body: JSON.stringify({ url: url }),
-      headers: { "Content-type": "application/json; charset=UTF-8" },
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
     })
       .then((response) => response.json())
       .then((data) => setJobs([data, ...jobs]));

@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { isValidURL } from "../utils";
+import React, { useState } from 'react';
+import { isValidURL } from '../utils';
 
 function JobInput({ sendJobUrl }) {
-  const [inputURL, setInputURL] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [inputURL, setInputURL] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (event) => {
     setInputURL(event.target.value);
   };
 
   const resetForm = () => {
-    setInputURL("");
-    setErrorMessage("");
+    setInputURL('');
+    setErrorMessage('');
   };
 
   const handleSubmit = (event) => {
@@ -19,7 +19,7 @@ function JobInput({ sendJobUrl }) {
 
     if (!inputURL) return;
     if (!isValidURL(inputURL)) {
-      setErrorMessage("Invalid url");
+      setErrorMessage('Invalid url');
       return;
     }
 
@@ -32,13 +32,7 @@ function JobInput({ sendJobUrl }) {
       {errorMessage && <p className="error">Error: {errorMessage}</p>}
 
       <div className="job-input">
-        <input
-          placeholder="Type a url"
-          type="text"
-          name="url"
-          value={inputURL}
-          onChange={handleInputChange}
-        />
+        <input placeholder="Type a url" type="text" name="url" value={inputURL} onChange={handleInputChange} />
         <button type="submit">Send</button>
       </div>
     </form>
