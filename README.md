@@ -49,7 +49,7 @@ I have deployed the application for demo purposes on [Heroku](https://dashboard.
 
 ## Quick Start. Run it locally 🚀
 
-### Add a default.json file in config folder with the following
+- Add a default.json file in config folder with the following
 
 ```
 {
@@ -57,28 +57,27 @@ I have deployed the application for demo purposes on [Heroku](https://dashboard.
 }
 ```
 
-### Install server dependencies
+- Install server dependencies
 
 ```bash
 npm install
 ```
 
-### Install client dependencies
+- Install client dependencies
 
 ```bash
 cd client
 npm install
 ```
 
-### Run both Express & React from root
+- Run both Express & React from root
 
 ```bash
 npm run dev
 ```
 ---
 
-## Going to Production 🚀
-## Docker containers 🐋
+## Docker container 🐋
 
 - A Dockerfile is provided to allow us to create a container with our application
 - This would allow us to deploy our app easily
@@ -92,6 +91,7 @@ npm run dev
 
 - To build the docker image we can navigate to the project root and execute `docker build -t anchor-crawler .`
 - Next step would be running the docker image by executing `docker run -e NODE_ENV=production -d -p 5000:5000 anchor-crawler:latest`
+- The app can be accessed on `localhost:5000`
 
 ## To take into account:
 
