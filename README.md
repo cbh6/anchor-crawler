@@ -2,6 +2,11 @@
 
 > A simple Web Scrapper
 
+![image](https://user-images.githubusercontent.com/7105710/116827414-25f39b00-ab99-11eb-9c4c-4bb9403155e6.png)
+![image](https://user-images.githubusercontent.com/7105710/116827423-30ae3000-ab99-11eb-947e-b2f713ee7916.png)
+
+
+
 ## What?:
 
 - This simple project is a small fullstack application that is able to fetch the html of any website and get all the anchors on it.
