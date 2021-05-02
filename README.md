@@ -32,7 +32,13 @@
   - **/config** is where we have our config files such local/prod environment variables, mongo credentials etc
   - **/models** for our mongoose schema definitions
   - **/routes** for our backend routes
-  - **/services** where the business logic lives 
+  - **/services** where the business logic lives
+
+## NPM Scripts
+
+- `npm run server` : runs server with nodemon
+- `npm run client` : runs client
+- `npm run dev` : uses `concurrently` package to run client and server at the same time
 
 ---
 ---
@@ -69,6 +75,30 @@ npm install
 ```bash
 npm run dev
 ```
+---
+
+## Going to Production 🚀
+## Docker containers 🐋
+
+- A Dockerfile is provided to allow us to create a container with our application
+- This would allow us to deploy our app easily
+- We will need a `config/production.json` file with a mongo url
+
+```
+{
+  "mongoURI": "<your_mongoDB_Atlas_uri_with_credentials>",
+}
+```
+
+- To build the docker image we can navigate to the project root and execute `docker build -t anchor-crawler .`
+- Next step would be running the docker image by executing `docker run -e NODE_ENV=production -d -p 5000:5000 anchor-crawler:latest`
+
+## To take into account:
+
+> I've set the **client** and the **backend** in the same repository for simplicity. That's why I have Express exposing API Rest and the frontend static files (on production mode) at the same time. This way we only need a `Dockerfile` to dockerize the entire application.
+
+> For a more scalable solution (having CI/CD in mind), the best way is to have **client** and **backend** on separated repositories, each one with its own `Dockerfile` and orchestrate everything with `docker-compose`. This way we could serve the static files using a `nginx` server.
+
 
 ---
 
@@ -76,7 +106,6 @@ npm run dev
 
 - 📤 The updates on the UI are done by http polling, this was done this way for simplicity, but obviously its not the better solution. We could use something like [SocketIO](https://socket.io/) to allow the client listen for server notifications instead of requesting for new data every X seconds. (I tried this a little some years ago and implemented a little chat application using VueJS and SocketIO. [Here is the repo](https://github.com/cbh6/vuejs-socketio-chat))
 - 🎨 The styling was done using plain css in one single file. This wasn't a problem on this small project. But for large codebases with lot of components, we can use [css modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) and [SCSS](https://sass-lang.com/) as a CSS preprocessor
-
 
 ## App Info
 

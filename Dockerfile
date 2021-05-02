@@ -1,15 +1,11 @@
-FROM node:14 AS client
-WORKDIR /app
-COPY client/package.json client/package-lock.json ./
-RUN npm install
-COPY client .
-RUN npm run build
-
-FROM node:14
+FROM node:10-alpine
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
-# COPY --from=client /app/client/build admin  # <-----
+WORKDIR /app/client
+RUN npm install
+RUN npm run build
+WORKDIR /app
 EXPOSE 5000
 CMD ["node", "server.js"]
