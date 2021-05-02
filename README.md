@@ -19,7 +19,7 @@
 ## How? / Tech stack 📦:
 
 - The entire application was done with [Node](https://nodejs.org/en/), [Express](http://expressjs.com/), [React](https://reactjs.org/), and [MongoDB](https://www.mongodb.com/).
-- It also uses [mongoose](https://mongoosejs.com/) as a Object Data Modeling and [Mongo Atlas](https://www.mongodb.com/cloud/atlas) as a cloud DataBase
+- It also uses [mongoose](https://mongoosejs.com/) as a Object Data Modeling and [Mongo Atlas](https://www.mongodb.com/cloud/atlas) as a cloud database
 
 ## Application structure
 
@@ -70,7 +70,7 @@ cd client
 npm install
 ```
 
-- Run both Express & React from root
+- Run both server and client from root
 
 ```bash
 npm run dev
@@ -79,9 +79,9 @@ npm run dev
 
 ## Docker container 🐋
 
-- A Dockerfile is provided to allow us to create a container with our application
+- A Dockerfile is provided to create a container with our application
 - This would allow us to deploy our app easily
-- We will need a `config/production.json` file with a mongo url
+- We will need a `config/production.json` file with a valid mongodb uri
 
 ```
 {
